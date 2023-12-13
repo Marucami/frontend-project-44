@@ -5,6 +5,7 @@ function getRandomOperator() {
   const randomIndex = Math.floor(Math.random() * operators.length);
   return operators[randomIndex];
 }
+
 function calculateExpression(number1, operator, number2) {
   switch (operator) {
     case '+':
@@ -17,6 +18,7 @@ function calculateExpression(number1, operator, number2) {
       return NaN;
   }
 }
+
 function playCalculatorGame() {
   let correctAnswersCount = 0;
   console.log('Welcome to the Brain Games!');
