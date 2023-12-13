@@ -12,8 +12,8 @@ function playGame() {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
-
   console.log("Answer 'yes' if the number is even, otherwise answer 'no'.");
+
   while (correctAnswersCount < 3) {
     const randomNumber = Math.floor(Math.random() * 100) + 1;
     console.log(`Question: ${randomNumber}`);
