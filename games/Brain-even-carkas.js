@@ -1,7 +1,10 @@
 import readlineSync from 'readline-sync';
 
 function isEven(number) {
-  return number % 2 === 0;
+  if (number % 2 === 0) {
+    return 'yes';
+  }
+  return 'no';
 }
 
 function playGame() {
@@ -11,18 +14,16 @@ function playGame() {
   console.log(`Hello, ${name}!`);
 
   console.log("Answer 'yes' if the number is even, otherwise answer 'no'.");
-
   while (correctAnswersCount < 3) {
     const randomNumber = Math.floor(Math.random() * 100) + 1;
     console.log(`Question: ${randomNumber}`);
     const userAnswer = readlineSync.question('Your answer: ');
 
-    if ((isEven(randomNumber) && userAnswer.toLowerCase() === 'yes')
-      || (!isEven(randomNumber) && userAnswer.toLowerCase() === 'no')) {
+    const correctAnswer = isEven(randomNumber);
+    if ((correctAnswer === userAnswer.toLowerCase())) {
       console.log('Correct!');
       correctAnswersCount += 1;
     } else {
-      const correctAnswer = isEven(randomNumber) ? 'yes' : 'no';
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
       console.log(`Let's try again, ${name}!`);
       return;
