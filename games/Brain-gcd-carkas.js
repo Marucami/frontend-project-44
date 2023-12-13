@@ -1,8 +1,8 @@
 import readlineSync from 'readline-sync';
 
-const findGCD = (x, y) => {
-  let a = Math.abs(x);
-  let b = Math.abs(y);
+const findGCD = (number1, number2) => {
+  let a = Math.abs(number1);
+  let b = Math.abs(number2);
 
   while (b !== 0) {
     const temp = b;
