@@ -22,7 +22,6 @@ function playCalculatorGame() {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
-
   console.log("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
   while (correctAnswersCount < 3) {
@@ -33,6 +32,7 @@ function playCalculatorGame() {
     const userAnswer = readlineSync.question(`Вычислите выражение: ${expression}: `);
     const userNumber = parseFloat(userAnswer);
     const correctAnswer = calculateExpression(randomNumber1, operator, randomNumber2);
+
     if (userNumber === correctAnswer) {
       console.log('Correct!');
       correctAnswersCount += 1;
