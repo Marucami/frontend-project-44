@@ -29,7 +29,6 @@ function playGame() {
       return;
     }
   }
-
   console.log(`Congratulations, ${name}!`);
 }
 
