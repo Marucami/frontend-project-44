@@ -18,8 +18,8 @@ function playGame() {
     const randomNumber = Math.floor(Math.random() * 100) + 1;
     console.log(`Question: ${randomNumber}`);
     const userAnswer = readlineSync.question('Your answer: ');
-
     const correctAnswer = isEven(randomNumber);
+
     if ((correctAnswer === userAnswer.toLowerCase())) {
       console.log('Correct!');
       correctAnswersCount += 1;
