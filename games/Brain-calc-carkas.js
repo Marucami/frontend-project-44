@@ -32,10 +32,6 @@ function playCalculatorGame() {
     const expression = `${randomNumber1} ${operator} ${randomNumber2}`;
     const userAnswer = readlineSync.question(`Вычислите выражение: ${expression}: `);
     const userNumber = parseFloat(userAnswer);
-    if (Number.isNaN(userNumber)) {
-      console.log('Вы ввели некорректное число.');
-      return;
-    }
     const correctAnswer = calculateExpression(randomNumber1, operator, randomNumber2);
     if (userNumber === correctAnswer) {
       console.log('Correct!');
