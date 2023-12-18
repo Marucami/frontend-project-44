@@ -24,14 +24,15 @@ function playCalculatorGame() {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
-  console.log("Answer 'yes' if the number is even, otherwise answer 'no'.");
+  console.log('What is the result of the expression?');
 
   while (correctAnswersCount < 3) {
     const randomNumber1 = Math.floor(Math.random() * 100) + 1;
     const randomNumber2 = Math.floor(Math.random() * 100) + 1;
     const operator = getRandomOperator();
     const expression = `${randomNumber1} ${operator} ${randomNumber2}`;
-    const userAnswer = readlineSync.question(`Вычислите выражение: ${expression}: `);
+    console.log(`Question: ${expression}`);
+    const userAnswer = readlineSync.question('Your answer: ');
     const userNumber = parseFloat(userAnswer);
     const correctAnswer = calculateExpression(randomNumber1, operator, randomNumber2);
 

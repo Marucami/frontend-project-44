@@ -1,3 +1,3 @@
-import { PlayFindGCD } from '../games/brain-gcd-carkas.js';
+import { PlayFindGCD } from '../games/Brain-gcd-carkas.js';
 
 PlayFindGCD();

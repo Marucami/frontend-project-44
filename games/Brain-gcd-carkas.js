@@ -24,7 +24,8 @@ function PlayFindGCD() {
     const randomNumber1 = Math.floor(Math.random() * 100) + 1;
     const randomNumber2 = Math.floor(Math.random() * 100) + 1;
     const expression = `${randomNumber1} ${randomNumber2}`;
-    const userAnswer = readlineSync.question(`Вычислите выражение: ${expression}: `);
+    console.log(`Question: ${expression}`);
+    const userAnswer = readlineSync.question('Your answer: ');
     const userNumber = parseFloat(userAnswer);
     const correctAnswer = findGCD(randomNumber1, randomNumber2);
 
