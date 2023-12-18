@@ -1,16 +1,13 @@
 #!/usr/bin/env node
 
-// Импорты
 import readlineSync from 'readline-sync';
 import { greetings, getRandomInt, brainGameStart } from '../src/cli.js';
 
-// Настройка игры
-const PointsTiWin = 3;
 const randMax = 100;
 
 const operations = ['+', '-', '*'];
 
-const brainCalc = (PlayerName) => {
+function brainCalc(PlayerName) {
   const [number1, number2] = [getRandomInt(0, randMax), getRandomInt(0, randMax)];
   const operation = getRandomInt(0, 2);
   let correctAnswer;
@@ -36,10 +33,10 @@ const brainCalc = (PlayerName) => {
   console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
   console.log(`Let's try again, ${PlayerName}!`);
   return 0;
-};
+}
 
 const gameName = brainCalc;
-
+const PointsTiWin = 3;
 const PlayerName = greetings();
 console.log('What is the result of the expression?');
 brainGameStart(PointsTiWin, PlayerName, gameName);
