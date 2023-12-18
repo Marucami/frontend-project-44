@@ -3,10 +3,8 @@
 import readlineSync from 'readline-sync';
 import { greetings, getRandomInt, brainGameStart } from '../src/cli.js';
 
-const randMax = 100;
-
 function brainEven(PlayerName) {
-  const number = getRandomInt(0, randMax);
+  const number = getRandomInt(0, 100);
   const correctAnswer = number % 2 === 0 ? 'yes' : 'no';
   console.log(`Question: ${number}`);
   const answer = readlineSync.question('Your answer: ');

@@ -3,12 +3,10 @@
 import readlineSync from 'readline-sync';
 import { greetings, getRandomInt, brainGameStart } from '../src/cli.js';
 
-const randMax = 100;
-
 const operations = ['+', '-', '*'];
 
 function brainCalc(PlayerName) {
-  const [number1, number2] = [getRandomInt(0, randMax), getRandomInt(0, randMax)];
+  const [number1, number2] = [getRandomInt(0, 100), getRandomInt(0, 100)];
   const operation = getRandomInt(0, 2);
   let correctAnswer;
   switch (operation) {

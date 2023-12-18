@@ -3,20 +3,18 @@
 import readlineSync from 'readline-sync';
 import { greetings, getRandomInt, brainGameStart } from '../src/cli.js';
 
-const findGCD = (num1, num2) => {
-  let a = num1;
-  let b = num2;
-  while (a !== 0 && b !== 0) {
-    if (a > b) a %= b;
-    else b %= a;
+function findGCD(num1, num2) {
+  let gcd = 1;
+  for (let i = 1; i <= num1 && i <= num2; i += 1) {
+    if (num1 % i === 0 && num2 % i === 0) {
+      gcd = i;
+    }
   }
-  return a + b;
-};
-
-const randMax = 100;
+  return gcd;
+}
 
 function brainGCD(PlayerName) {
-  const [number1, number2] = [getRandomInt(0, randMax), getRandomInt(0, randMax)];
+  const [number1, number2] = [getRandomInt(0, 100), getRandomInt(0, 100)];
   const correctAnswer = findGCD(number1, number2);
   console.log(`Question: ${number1} ${number2}`);
   const answer = readlineSync.question('Your answer: ');

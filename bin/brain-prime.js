@@ -3,8 +3,6 @@
 import readlineSync from 'readline-sync';
 import { greetings, getRandomInt, brainGameStart } from '../src/cli.js';
 
-const randMax = 100;
-
 function isPrime(num) {
   if (num <= 1) {
     return 'no';
@@ -18,7 +16,7 @@ function isPrime(num) {
 }
 
 function brainPrime(PlayerName) {
-  const number = getRandomInt(0, randMax);
+  const number = getRandomInt(0, 100);
   const correctAnswer = isPrime(number);
   console.log(`Question: ${number}`);
   const answer = readlineSync.question('Your answer: ');
