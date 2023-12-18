@@ -2,23 +2,16 @@
 import readlineSync from 'readline-sync';
 import { greetings, brainGameStart } from '../src/cli.js';
 
-function isEven(number) {
-  if (number % 2 === 0) {
-    return 'yes';
-  }
-  return 'no';
-}
-
 function playEven(PlayerName) {
   const Number = Math.floor(Math.random() * 100) + 1;
+  const correctAnswer = Number % 2 === 0 ? 'yes' : 'no';
   console.log(`Question: ${Number}`);
-  const userAnswer = readlineSync.question('Your answer: ');
-  const correctAnswer = isEven(Number);
-  if ((correctAnswer === userAnswer)) {
+  const answer = readlineSync.question('Your answer: ');
+  if (answer === correctAnswer) {
     console.log('Correct!');
     return 1;
   }
-  console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+  console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
   console.log(`Let's try again, ${PlayerName}!`);
   return 0;
 }
