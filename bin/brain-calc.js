@@ -2,7 +2,7 @@
 
 // Импорты
 import readlineSync from 'readline-sync';
-import { welcome, getRandomInt, brainGameStart } from '../src/cli.js';
+import { greetings, getRandomInt, brainGameStart } from '../src/cli.js';
 
 // Настройка игры
 const PointsTiWin = 3;
@@ -40,6 +40,6 @@ const brainCalc = (PlayerName) => {
 
 const gameName = brainCalc;
 
-const PlayerName = welcome();
+const PlayerName = greetings();
 console.log('What is the result of the expression?');
 brainGameStart(PointsTiWin, PlayerName, gameName);
