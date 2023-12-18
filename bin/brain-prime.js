@@ -7,14 +7,14 @@ const randMax = 100;
 
 function isPrime(num) {
   if (num <= 1) {
-    return false;
+    return 'no';
   }
   for (let i = 2; i <= Math.sqrt(num); i += 1) {
     if (num % i === 0) {
-      return false;
+      return 'no';
     }
   }
-  return true;
+  return 'yes';
 }
 
 function brainPrime(PlayerName) {
