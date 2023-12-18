@@ -18,10 +18,10 @@ function playGame() {
   console.log("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
   while (correctAnswersCount < 3) {
-    const randomNumber = Math.floor(Math.random() * 100) + 1;
-    console.log(`Question: ${randomNumber}`);
+    const Number = Math.floor(Math.random() * 100) + 1;
+    console.log(`Question: ${Number}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    const correctAnswer = isEven(randomNumber);
+    const correctAnswer = isEven(Number);
 
     if ((correctAnswer === userAnswer.toLowerCase())) {
       console.log('Correct!');
