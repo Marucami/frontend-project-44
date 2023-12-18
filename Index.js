@@ -9,6 +9,6 @@ export function brainGameStart(PlayerName, gameName) {
   return 0;
 }
 
-export function getRandomInt(min, max) {
+export const getRandomInt = (min, max) => {
   Math.floor(Math.random() * (max + 1 - min) + min);
-}
+};
