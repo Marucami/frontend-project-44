@@ -5,22 +5,21 @@ import { greetings, getRandomInt, brainGameStart } from '../src/cli.js';
 
 const randMax = 100;
 
-const checkPrime = (n) => {
-  if (n === 0 || n === 1) return 'no';
-  let isPrime = true;
-  let i = 2;
-  while (i <= Math.sqrt(n) && isPrime === true) {
-    if (n % i === 0) {
-      isPrime = false;
-    }
-    i += 1;
+function isPrime(num) {
+  if (num <= 1) {
+    return false;
   }
-  return isPrime ? 'yes' : 'no';
-};
+  for (let i = 2; i <= Math.sqrt(num); i += 1) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
 
 function brainPrime(PlayerName) {
   const number = getRandomInt(0, randMax);
-  const correctAnswer = checkPrime(number);
+  const correctAnswer = isPrime(number);
   console.log(`Question: ${number}`);
   const answer = readlineSync.question('Your answer: ');
   if (answer === correctAnswer) {
