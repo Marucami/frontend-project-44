@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
-import { greetings, brainGameStart } from '../src/cli.js';
+import { greetings } from '../src/cli.js';
+import { brainGameStart } from '../Index.js';
 
 function generateArithmeticProgression() {
   const length = Math.floor(Math.random() * 6) + 5;
@@ -32,7 +33,6 @@ function PlayProgression() {
   return 0;
 }
 
-const PointsToWin = 3;
 const gameName = PlayProgression;
 console.log('What number is missing in the progression?');
-brainGameStart(PointsToWin, PlayerName, gameName);
+brainGameStart(PlayerName, gameName);

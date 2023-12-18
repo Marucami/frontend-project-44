@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
-import { greetings, getRandomInt, brainGameStart } from '../src/cli.js';
+import { greetings } from '../src/cli.js';
+import { getRandomInt, brainGameStart } from '../Index.js';
 
 function brainEven(PlayerName) {
   const number = getRandomInt(0, 100);
@@ -18,7 +19,6 @@ function brainEven(PlayerName) {
 }
 
 const gameName = brainEven;
-const PointsTiWin = 3;
 const PlayerName = greetings();
 console.log('Answer "yes" if the number is even, otherwise answer "no".');
-brainGameStart(PointsTiWin, PlayerName, gameName);
+brainGameStart(PlayerName, gameName);

@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
-import { greetings, getRandomInt, brainGameStart } from '../src/cli.js';
+import { greetings } from '../src/cli.js';
+import { getRandomInt, brainGameStart } from '../Index.js';
 
 function findGCD(num1, num2) {
   let gcd = 1;
@@ -28,7 +29,6 @@ function brainGCD(PlayerName) {
 }
 
 const gameName = brainGCD;
-const PointsTiWin = 3;
 const PlayerName = greetings();
 console.log('Find the greatest common divisor of given numbers.');
-brainGameStart(PointsTiWin, PlayerName, gameName);
+brainGameStart(PlayerName, gameName);

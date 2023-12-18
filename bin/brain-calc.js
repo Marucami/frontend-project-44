@@ -1,13 +1,19 @@
 #!/usr/bin/env node
 
 import readlineSync from 'readline-sync';
-import { greetings, getRandomInt, brainGameStart } from '../src/cli.js';
+import { greetings } from '../src/cli.js';
+import { getRandomInt, brainGameStart } from '../Index.js';
 
-const operations = ['+', '-', '*'];
+function randomOperation() {
+  const operations = ['+', '-', '*'];
+  const randomIndex = Math.floor(Math.random() * operations.length);
+  return operations[randomIndex];
+}
 
 function brainCalc(PlayerName) {
-  const [number1, number2] = [getRandomInt(0, 100), getRandomInt(0, 100)];
-  const operation = getRandomInt(0, 2);
+  const number1 = getRandomInt(0, 100);
+  const number2 = getRandomInt(0, 100);
+  const operation = randomOperation();
   let correctAnswer;
   switch (operation) {
     case 0:
@@ -22,7 +28,7 @@ function brainCalc(PlayerName) {
     default:
       return 0;
   }
-  console.log(`Question: ${number1} ${operations[operation]} ${number2}`);
+  console.log(`Question: ${number1} ${operation} ${number2}`);
   const answer = readlineSync.question('Your answer: ');
   if (parseInt(answer, 10) === correctAnswer) {
     console.log('Correct!');
@@ -34,7 +40,6 @@ function brainCalc(PlayerName) {
 }
 
 const gameName = brainCalc;
-const PointsTiWin = 3;
 const PlayerName = greetings();
 console.log('What is the result of the expression?');
-brainGameStart(PointsTiWin, PlayerName, gameName);
+brainGameStart(PlayerName, gameName);
