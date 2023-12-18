@@ -29,10 +29,9 @@ function PlayFindGCD() {
     const expression = `${randomNumber1} ${randomNumber2}`;
     console.log(`Question: ${expression}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    const userNumber = parseFloat(userAnswer);
     const correctAnswer = findGCD(randomNumber1, randomNumber2);
 
-    if (userNumber === correctAnswer) {
+    if (parseInt(userAnswer, 10) === correctAnswer) {
       console.log('Correct!');
       correctAnswersCount += 1;
     } else {
