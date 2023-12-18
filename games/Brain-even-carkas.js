@@ -15,7 +15,7 @@ function isEven(number) {
 
 function playGame() {
   let correctAnswersCount = 0;
-  console.log("Answer 'yes' if the number is even, otherwise answer 'no'.");
+  console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
   while (correctAnswersCount < 3) {
     const Number = Math.floor(Math.random() * 100) + 1;
