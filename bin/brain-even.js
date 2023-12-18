@@ -9,15 +9,12 @@ function isEven(number) {
   return 'no';
 }
 
-const PlayerName = greetings();
-
-function playEven() {
+function playEven(PlayerName) {
   const Number = Math.floor(Math.random() * 100) + 1;
   console.log(`Question: ${Number}`);
   const userAnswer = readlineSync.question('Your answer: ');
   const correctAnswer = isEven(Number);
-
-  if ((correctAnswer === userAnswer.toLowerCase())) {
+  if ((correctAnswer === userAnswer)) {
     console.log('Correct!');
     return 1;
   }
@@ -26,6 +23,7 @@ function playEven() {
   return 0;
 }
 
+const PlayerName = greetings();
 const PointsToWin = 3;
 const gameName = playEven;
 console.log("Answer 'yes' if the number is even, otherwise answer 'no'.");
