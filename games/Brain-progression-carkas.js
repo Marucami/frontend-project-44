@@ -28,10 +28,10 @@ function PlayProgression() {
     progression[hiddenIndex] = '..';
     console.log(`Question: ${progression.join(' ')}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    const uNumber = parseFloat(userAnswer);
+    const userNumber = parseFloat(userAnswer);
     const correctAnswer = hiddenValue;
 
-    if (uNumber === correctAnswer) {
+    if (userNumber === correctAnswer) {
       console.log('Correct!');
       correctAnswersCount += 1;
     } else {
