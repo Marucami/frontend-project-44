@@ -1,5 +1,11 @@
 import readlineSync from 'readline-sync';
 
+import { greetings } from '../src/cli.js';
+
+greetings();
+
+const name = greetings();
+
 function getRandomOperator() {
   const operators = ['+', '-', '*'];
   const randomIndex = Math.floor(Math.random() * operators.length);
@@ -21,9 +27,6 @@ function calculateExpression(number1, operator, number2) {
 
 function playCalculatorGame() {
   let correctAnswersCount = 0;
-  console.log('Welcome to the Brain Games!');
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
   console.log('What is the result of the expression?');
 
   while (correctAnswersCount < 3) {

@@ -1,5 +1,11 @@
 import readlineSync from 'readline-sync';
 
+import { greetings } from '../src/cli.js';
+
+greetings();
+
+const name = greetings();
+
 function generateArithmeticProgression() {
   const length = Math.floor(Math.random() * 6) + 5;
   const start = Math.floor(Math.random() * 11);
@@ -13,9 +19,6 @@ function generateArithmeticProgression() {
 
 function PlayProgression() {
   let correctAnswersCount = 0;
-  console.log('Welcome to the Brain Games!');
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
   console.log('What number is missing in the progression?');
 
   while (correctAnswersCount < 3) {

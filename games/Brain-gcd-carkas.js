@@ -1,5 +1,11 @@
 import readlineSync from 'readline-sync';
 
+import { greetings } from '../src/cli.js';
+
+greetings();
+
+const name = greetings();
+
 const findGCD = (number1, number2) => {
   let a = Math.abs(number1);
   let b = Math.abs(number2);
@@ -15,9 +21,6 @@ const findGCD = (number1, number2) => {
 
 function PlayFindGCD() {
   let correctAnswersCount = 0;
-  console.log('Welcome to the Brain Games!');
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
   console.log("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
   while (correctAnswersCount < 3) {
