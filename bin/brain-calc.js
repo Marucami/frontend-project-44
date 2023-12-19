@@ -2,7 +2,7 @@
 
 import readlineSync from 'readline-sync';
 import { greetings } from '../src/cli.js';
-import { getRandomInt, brainGameStart } from '../Index.js';
+import { brainGameStart } from '../Index.js';
 
 function randomOperation() {
   const operations = ['+', '-', '*'];
@@ -11,8 +11,8 @@ function randomOperation() {
 }
 
 function brainCalc(PlayerName) {
-  const number1 = getRandomInt(0, 100);
-  const number2 = getRandomInt(0, 100);
+  const number1 = Math.floor(Math.random() * 101);
+  const number2 = Math.floor(Math.random() * 101);
   const operation = randomOperation();
   let correctAnswer;
   switch (operation) {

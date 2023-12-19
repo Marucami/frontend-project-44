@@ -2,7 +2,7 @@
 
 import readlineSync from 'readline-sync';
 import { greetings } from '../src/cli.js';
-import { getRandomInt, brainGameStart } from '../Index.js';
+import { brainGameStart } from '../Index.js';
 
 function isPrime(num) {
   if (num <= 1) {
@@ -17,7 +17,7 @@ function isPrime(num) {
 }
 
 function brainPrime(PlayerName) {
-  const number = getRandomInt(0, 100);
+  const number = Math.floor(Math.random() * 101);
   const correctAnswer = isPrime(number);
   console.log(`Question: ${number}`);
   const answer = readlineSync.question('Your answer: ');

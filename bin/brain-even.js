@@ -2,10 +2,10 @@
 
 import readlineSync from 'readline-sync';
 import { greetings } from '../src/cli.js';
-import { getRandomInt, brainGameStart } from '../Index.js';
+import { brainGameStart } from '../Index.js';
 
 function brainEven(PlayerName) {
-  const number = getRandomInt(0, 100);
+  const number = Math.floor(Math.random() * 101);
   const correctAnswer = number % 2 === 0 ? 'yes' : 'no';
   console.log(`Question: ${number}`);
   const answer = readlineSync.question('Your answer: ');
