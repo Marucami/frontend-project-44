@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint no-eval: 0 */
 
 import readlineSync from 'readline-sync';
 import { greetings } from '../src/cli.js';
@@ -10,25 +11,22 @@ function randomOperation() {
   return operations[randomIndex];
 }
 
+function generateMathExpression() {
+  const num1 = Math.floor(Math.random() * 101);
+  const num2 = Math.floor(Math.random() * 101);
+  const operator = randomOperation();
+
+  return `${num1} ${operator} ${num2}`;
+}
+
+function calculateExpression(expression) {
+  return eval(expression);
+}
+
 function brainCalc(PlayerName) {
-  const number1 = Math.floor(Math.random() * 101);
-  const number2 = Math.floor(Math.random() * 101);
-  const operation = randomOperation();
-  let correctAnswer;
-  switch (operation) {
-    case 0:
-      correctAnswer = number1 + number2;
-      break;
-    case 1:
-      correctAnswer = number1 - number2;
-      break;
-    case 2:
-      correctAnswer = number1 * number2;
-      break;
-    default:
-      return 0;
-  }
-  console.log(`Question: ${number1} ${operation} ${number2}`);
+  const expression = generateMathExpression();
+  const correctAnswer = calculateExpression(expression);
+  console.log(`Question: ${expression}`);
   const answer = readlineSync.question('Your answer: ');
   if (parseInt(answer, 10) === correctAnswer) {
     console.log('Correct!');

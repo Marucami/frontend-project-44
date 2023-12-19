@@ -1,4 +1,4 @@
-export function brainGameStart(PlayerName, gameName) {
+export const brainGameStart = (PlayerName, gameName) => {
   let correctCount = 0;
   while (correctCount < 3) {
     if (gameName(PlayerName) === 1) {
@@ -7,4 +7,4 @@ export function brainGameStart(PlayerName, gameName) {
   }
   console.log(`Congratulations, ${PlayerName}!`);
   return 0;
-}
+};
