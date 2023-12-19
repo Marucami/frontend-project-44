@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
 import { greetings } from '../src/cli.js';
-import { brainGameStart } from '../Index.js';
+import { brainGameStart } from '../index.js';
 
 function generateArithmeticProgression() {
   const length = Math.floor(Math.random() * 6) + 5;
