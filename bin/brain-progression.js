@@ -14,9 +14,7 @@ function generateArithmeticProgression() {
   return progression;
 }
 
-const PlayerName = greetings();
-
-function PlayProgression() {
+function PlayProgression(PlayerName) {
   const progression = generateArithmeticProgression();
   const hiddenIndex = Math.floor(Math.random() * progression.length);
   const hiddenValue = progression[hiddenIndex];
@@ -33,6 +31,7 @@ function PlayProgression() {
   return 0;
 }
 
+const PlayerName = greetings();
 const gameName = PlayProgression;
 console.log('What number is missing in the progression?');
 brainGameStart(PlayerName, gameName);
