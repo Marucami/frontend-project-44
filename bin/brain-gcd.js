@@ -2,7 +2,7 @@
 
 import readlineSync from 'readline-sync';
 import { greetings } from '../src/cli.js';
-import { brainGameStart } from '../index.js';
+import { brainGameStart } from '../src/index.js';
 
 function findGCD(num1, num2) {
   let gcd = 1;

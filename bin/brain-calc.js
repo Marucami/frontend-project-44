@@ -3,7 +3,7 @@
 
 import readlineSync from 'readline-sync';
 import { greetings } from '../src/cli.js';
-import { brainGameStart } from '../index.js';
+import { brainGameStart } from '../src/index.js';
 
 function randomOperation() {
   const operations = ['+', '-', '*'];
