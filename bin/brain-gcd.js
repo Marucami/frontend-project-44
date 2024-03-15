@@ -6,6 +6,9 @@ import { brainGameStart } from '../src/index.js';
 
 function findGCD(num1, num2) {
   let gcd = 1;
+  if (num1 === 0 || num2 === 0) {
+    return gcd;
+  }
   for (let i = 1; i <= num1 && i <= num2; i += 1) {
     if (num1 % i === 0 && num2 % i === 0) {
       gcd = i;
