@@ -1,8 +1,7 @@
 #!/usr/bin/env node
+import { brainGameStart, getRandomNumber } from '../index.js';
 
-import readlineSync from 'readline-sync';
-import { greetings } from '../cli.js';
-import { brainGameStart } from '../index.js';
+const task = 'Find the greatest common divisor of given numbers.';
 
 function findGCD(num1, num2) {
   let gcd = 1;
@@ -17,25 +16,12 @@ function findGCD(num1, num2) {
   return gcd;
 }
 
-function brainGCD(PlayerName) {
-  const number1 = Math.floor(Math.random() * 101);
-  const number2 = Math.floor(Math.random() * 101);
-  const correctAnswer = findGCD(number1, number2);
-  console.log(`Question: ${number1} ${number2}`);
-  const answer = readlineSync.question('Your answer: ');
-  if (parseInt(answer, 10) === correctAnswer) {
-    console.log('Correct!');
-    return 1;
-  }
-  console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-  console.log(`Let's try again, ${PlayerName}!`);
-  return 0;
+function brainGCD() {
+  const question = [getRandomNumber(0, 100), getRandomNumber(0, 100)];
+  const answer = findGCD(...question).toString();
+  return [question.join(' '), answer];
 }
 
-const gameName = brainGCD;
-const PlayerName = greetings();
-console.log('Find the greatest common divisor of given numbers.');
-
 export default () => {
-  brainGameStart(PlayerName, gameName);
+  brainGameStart(task, brainGCD);
 };

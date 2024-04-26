@@ -1,27 +1,21 @@
 #!/usr/bin/env node
+import { brainGameStart, getRandomNumber } from '../index.js';
 
-import readlineSync from 'readline-sync';
-import { greetings } from '../cli.js';
-import { brainGameStart } from '../index.js';
+const task = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-function brainEven(PlayerName) {
-  const number = Math.floor(Math.random() * 101);
-  const correctAnswer = number % 2 === 0 ? 'yes' : 'no';
-  console.log(`Question: ${number}`);
-  const answer = readlineSync.question('Your answer: ');
-  if (answer === correctAnswer) {
-    console.log('Correct!');
-    return 1;
+const isEven = (number) => {
+  if (number % 2 === 0) {
+    return 'yes';
   }
-  console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-  console.log(`Let's try again, ${PlayerName}!`);
-  return 0;
-}
+  return 'no';
+};
 
-const gameName = brainEven;
-const PlayerName = greetings();
-console.log('Answer "yes" if the number is even, otherwise answer "no".');
+const brainEven = () => {
+  const question = getRandomNumber(0, 100);
+  const correctAnswer = isEven(question);
+  return [question, correctAnswer];
+};
 
 export default () => {
-  brainGameStart(PlayerName, gameName);
+  brainGameStart(task, brainEven);
 };

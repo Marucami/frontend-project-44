@@ -1,8 +1,7 @@
 #!/usr/bin/env node
+import { brainGameStart, getRandomNumber } from '../index.js';
 
-import readlineSync from 'readline-sync';
-import { greetings } from '../cli.js';
-import { brainGameStart } from '../index.js';
+const task = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 function isPrime(num) {
   if (num <= 1) {
@@ -16,23 +15,12 @@ function isPrime(num) {
   return 'yes';
 }
 
-function brainPrime(PlayerName) {
-  const number = Math.floor(Math.random() * 101);
-  const correctAnswer = isPrime(number);
-  console.log(`Question: ${number}`);
-  const answer = readlineSync.question('Your answer: ');
-  if (answer === correctAnswer) {
-    console.log('Correct!');
-    return 1;
-  }
-  console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-  console.log(`Let's try again, ${PlayerName}!`);
-  return 0;
+function brainPrime() {
+  const question = getRandomNumber(0, 100);
+  const answer = isPrime(question);
+  return [question, answer];
 }
 
-const gameName = brainPrime;
-const PlayerName = greetings();
-console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
 export default () => {
-  brainGameStart(PlayerName, gameName);
+  brainGameStart(task, brainPrime);
 };

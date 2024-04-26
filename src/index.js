@@ -1,11 +1,28 @@
-/* eslint-disable import/prefer-default-export */
-export function brainGameStart(PlayerName, gameName) {
+import readlineSync from 'readline-sync';
+import greetings from './cli.js';
+
+function brainGameStart(task, gameName) {
+  console.log('Welcome to the Brain Games!');
+  const PlayerName = greetings();
+  console.log(task);
   let correctCount = 0;
   while (correctCount < 3) {
-    if (gameName(PlayerName) === 1) {
-      correctCount += 1;
-    } else return 0;
+    const [question, correctAnswer] = gameName();
+    console.log(`Question: ${question}`);
+    const playerAnswer = readlineSync.question('Your answer: ');
+    if (correctAnswer !== playerAnswer) {
+      console.log(`"${playerAnswer}" is a wrong answer. Correct answer was "${correctAnswer}".`);
+      console.log(`Let's try again, ${PlayerName}!`);
+      return;
+    }
+    console.log('Correct!');
+    correctCount += 1;
   }
   console.log(`Congratulations, ${PlayerName}!`);
-  return 0;
 }
+
+function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+export { brainGameStart, getRandomNumber };

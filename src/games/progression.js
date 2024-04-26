@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-import readlineSync from 'readline-sync';
-import { greetings } from '../cli.js';
-import { brainGameStart } from '../index.js';
+import { brainGameStart, getRandomNumber } from '../index.js';
+
+const task = 'What number is missing in the progression?';
 
 function generateArithmeticProgression() {
   const length = Math.floor(Math.random() * 6) + 5;
@@ -14,26 +14,17 @@ function generateArithmeticProgression() {
   return progression;
 }
 
-function PlayProgression(PlayerName) {
+function PlayProgression() {
   const progression = generateArithmeticProgression();
-  const hiddenIndex = Math.floor(Math.random() * progression.length);
-  const hiddenValue = progression[hiddenIndex];
-  progression[hiddenIndex] = '..';
-  console.log(`Question: ${progression.join(' ')}`);
-  const userAnswer = readlineSync.question('Your answer: ');
-  const correctAnswer = hiddenValue;
-  if (parseInt(userAnswer, 10) === correctAnswer) {
-    console.log('Correct!');
-    return 1;
-  }
-  console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-  console.log(`Let's try again, ${PlayerName}!`);
-  return 0;
+  const minIndexOfHiddenNumber = 0;
+  const maxIndexOfHiddenNumber = progression.length - 1;
+  const indexOfHiddenNumber = getRandomNumber(minIndexOfHiddenNumber, maxIndexOfHiddenNumber);
+  const answer = String(progression[indexOfHiddenNumber]);
+  progression[indexOfHiddenNumber] = '..';
+  const question = progression.join(' ');
+  return [question, answer];
 }
 
-const PlayerName = greetings();
-const gameName = PlayProgression;
-console.log('What number is missing in the progression?');
 export default () => {
-  brainGameStart(PlayerName, gameName);
+  brainGameStart(task, PlayProgression);
 };
