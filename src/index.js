@@ -1,13 +1,8 @@
 import readlineSync from 'readline-sync';
-
-function name() {
-  const Name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${Name}`);
-  return Name;
-}
+import greetings from './cli.js';
 
 function brainGameStart(task, gameName) {
-  const PlayerName = name();
+  const PlayerName = greetings();
   console.log(task);
   let correctCount = 0;
   while (correctCount < 3) {
