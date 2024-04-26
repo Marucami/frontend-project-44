@@ -3,5 +3,14 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/9afba578ad241df1b3a8/maintainability)](https://codeclimate.com/github/Marucami/frontend-project-44/maintainability)
 
-Brain-calc
+Brain-even
 [![asciicast](https://asciinema.org/a/5rgu8bBHe7owlTwyDxkBosDY0.svg)](https://asciinema.org/a/5rgu8bBHe7owlTwyDxkBosDY0)
+
+
+Brain-calc
+
+Brain-gcd
+
+Brain-progression
+
+Brain-prime
